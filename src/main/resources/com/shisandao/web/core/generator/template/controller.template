@@ -1,0 +1,13 @@
+package ${codeData.packageName};
+
+import org.springframework.stereotype.Controller;
+import io.swagger.annotations.Api;
+
+/**
+* controller类
+* Created by ${codeData.author} on ${codeData.createTime}
+*/
+@Controller
+@Api(tags = "${codeData.className}")
+public class ${codeData.className} {
+}

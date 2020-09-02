@@ -1,0 +1,12 @@
+package ${codeData.packageName};
+
+import ${codeData.servicePackageName}.${codeData.serviceClassName};
+import org.springframework.stereotype.Service;
+
+/**
+* service实现类
+* Created by ${codeData.author} on ${codeData.createTime}
+*/
+@Service
+public class ${codeData.className} implements ${codeData.serviceClassName} {
+}

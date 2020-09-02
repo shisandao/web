@@ -1,0 +1,8 @@
+package ${codeData.packageName};
+
+/**
+* mapper接口类
+* Created by ${codeData.author} on ${codeData.createTime}
+*/
+public interface ${codeData.className} {
+}

@@ -1,0 +1,24 @@
+server:
+  port: 9080
+
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/gem?useUnicode=true&characterEncoding=utf-8&serverTimezone=Asia/Shanghai
+    username: root
+    password: 123456
+
+# mybatis配置
+mybatis:
+  #mapper文件路径
+  mapperLocations: classpath:com/shisandao/web/core/sys/**/mapper/*.xml
+  #typeAlias包路径
+  type-alias-package:
+
+#数据库驱动
+mydatabase:
+  catalog: gem
+  driver: com.mysql.cj.jdbc.Driver
+
+
+my-generator:
+  template-url: com/shisandao/web/core/generator/template

@@ -1,0 +1,56 @@
+package ${codeData.packageName};
+
+import javax.persistence.Id;
+import io.swagger.annotations.ApiModelProperty;
+import java.io.Serializable;
+<%
+for(package in codeData.importPackageSet){
+%>
+import ${package};
+<%}%>
+
+/**
+* dto类
+* Created by ${codeData.author} on ${codeData.createTime}
+*/
+public class ${codeData.className} implements Serializable {
+
+    private static final long serialVersionUID = -1L;
+    <% for(param in codeData.propertyList){ %>
+
+    <% if(param.pkFlag){ %>
+    @Id
+    <%}%>
+    @ApiModelProperty(value = "${param.comment}")
+    private ${param.type} ${param.name};
+    <%}%>
+
+    <%
+    for(param in codeData.propertyList){
+        var firstChar_upper =  strutil.toUpperCase(strutil.subStringTo(param.name, 0, 1));
+        var paramName = firstChar_upper + strutil.subStringTo(param.name, 1, strutil.length(param.name));
+    %>
+
+    public ${param.type} get${paramName}() {
+        return ${param.name};
+    }
+
+    public void set${paramName}(${param.type} ${param.name}) {
+        this.${param.name} = ${param.name};
+    }
+    <%}%>
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append(getClass().getSimpleName());
+        sb.append(" [");
+        sb.append("Hash = ").append(hashCode());
+        <% for(param in codeData.propertyList){ %>
+        sb.append(", ${param.name}=").append(${param.name});
+        <%}%>
+        sb.append(", serialVersionUID=").append(serialVersionUID);
+        sb.append("]");
+        return sb.toString();
+    }
+}
